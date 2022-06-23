@@ -1,5 +1,7 @@
 ## Configurando ambiente de desenvolvimento
 
+- Start (npm run dev)
+
 -   Extensão
 
     -   GraphQL
@@ -171,6 +173,46 @@ function App() {
 ## Dividindo e estilizando os componentes
 
 - Criar pasta componets em SRC
-  
 
+- Para não gerar errors, criar alguma informação dentro de cada uma delas
+
+- Como serão 2 páginas, criar uma pasta pages, com as páginas estruturadas
+
+- Importar a página do pages no App.tsx
+
+- Coverter copy do SVG para jsx
+  - https://svg2jsx.com/ (retorna um componente do react)
+  - Copia o código react em um pasta específica para ele (Logo.tsx)
+
+## Configurações de estilo
+
+- Para imagem ocupar tamanho tode de tela (className='w-full' )
+
+- Padding p(eixo x ou y)-tamanho de padding (multiplos de 4) 
+  - (className = 'py-5) significa que temos 20px de padding em cima e embaixo
+
+- Padrão flex
+  - flex items-center justify-center
+
+- Customizando cores no tailwind
+ - No tailewind.config.js existe o theme, e dentro dele o extend. Lá é possive estender as cores do tailwind (agora é possível a utilização dessa cor em toda a aplicação)
+
+ - borda (border-b) o b significa botton de 1px
+
+ - cor da borda (border-color) ex.border-dray-600
+
+- para aplicar setagens gerais
+  - styles/global
+  - ex. body {
+    @apply bg-gray-900 text-gray-100;
+}
+
+- Para capturar um fonte, ir para Google fonts 
+  - copiar o <link>
+  - copiar o link no head do index.html
+  - Dizer ao tailwind que vamos usar essa fonte por padrão em todos os textos
+    - tailwind.config.js passar antes do color o font-family 
+    - ex. fontFamily: {
+                sans: "Roboto, sans-serif",
+            },
 
