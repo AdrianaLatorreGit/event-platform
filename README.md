@@ -208,7 +208,7 @@ function App() {
 }
 
 - Para capturar um fonte, ir para Google fonts 
-  - copiar o <link>
+  - copiar o link
   - copiar o link no head do index.html
   - Dizer ao tailwind que vamos usar essa fonte por padrão em todos os textos
     - tailwind.config.js passar antes do color o font-family 
