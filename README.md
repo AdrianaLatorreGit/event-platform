@@ -146,6 +146,7 @@ const { data } = useQuery <{ lessons: Lesson[]}> (GET_LESSONS_QUERY)
 console.log(data);
 
 return (
+
 <ul>
 {data?.lessons.map(lesson => {
 return <li>{lesson.title}</li>
@@ -253,56 +254,88 @@ Dinamismo para variae dependendo da aula, liberada ou não, ao vivo ou não
 -   Em sidebar, dentro da tag criada (Lesson), envia os conteúdos
 
 -   Buscar as aulas dentro do GraphCMS
+
     -   Criar uma const chamando gql com oq vai ser ofertado (copiar a requisição do GraphCMS)
     -   Cria uma const {data} = useQuery para usar informações
 
-- Interface pra passar o tipagem do retorno
+-   Interface pra passar o tipagem do retorno
 
-- retorna a interface dentro da const
+-   retorna a interface dentro da const
 
-- Percorre todas as lessons e devolve os conteúdos indicados
-  ex. <div className="flex flex-col gap-8">
-              {data?.lessons.map(lesson => {
-                return(
-                    <Lesson
-                    title="Aula1"
-                    slug="aula-01"
-                    availableAt={new Date()}
-                    type="class"
-                    />
-                )
-              })
-              }
+-   Percorre todas as lessons e devolve os conteúdos indicados
+    ex. <div className="flex flex-col gap-8">
+    {data?.lessons.map(lesson => {
+    return(
+    <Lesson
+    title="Aula1"
+    slug="aula-01"
+    availableAt={new Date()}
+    type="class"
+    />
+    )
+    })
+    }
 
-- Quando percorremos um array e retorna um elemento, no react temos que acrescentar o Key = {"informaçnao unica que temos em cada item da lista}
+-   Quando percorremos um array e retorna um elemento, no react temos que acrescentar o Key = {"informaçnao unica que temos em cada item da lista}
 
 ## Instalando API (biblioteca) de datas
 
-- npm i date-fns
+-   npm i date-fns
 
-- Importa em Lesson.tsx a primeira função da biblioteca 
-  - isPast que é uma função que verifica se uma data já passou
+-   Importa em Lesson.tsx a primeira função da biblioteca
 
-- Na const isLessonAvailable chama a função isPast com a propriedade props.availableAt
+    -   isPast que é uma função que verifica se uma data já passou
+
+-   Na const isLessonAvailable chama a função isPast com a propriedade props.availableAt
 
 ## Criando uma nova aula
 
-- Com data que está por vir
+-   Com data que está por vir
 
-- Cria a aula no graphsCMS e publica
+-   Cria a aula no graphsCMS e publica
 
 ## Formatando o texto da data
 
-- Usar o método "format" que está dentro da biblioteca date-fns
+-   Usar o método "format" que está dentro da biblioteca date-fns
 
-- Chamar no import do Lesson.tsx
+-   Chamar no import do Lesson.tsx
 
-- Cria uma constante para formatação (const availableDateFormated)
+-   Cria uma constante para formatação (const availableDateFormated)
 
-- Primeiro parâmetro é a data props.availableAt e o segundo o formato de data que será usado 
-  - Aspas duplas no formato e os caracteres que estão na documentação do FNS, onde caracteres irão representar o conteúdo da data. As aspas simples serão textos que não vão ser formatados
-    - EEEE (dia da semana), ' ' com o ponto dentro •, dia (d) ' de ', MMMM (mês), ' ' com o ponto dentro •, k (hora), ' h ', mm (minuto), 
+-   Primeiro parâmetro é a data props.availableAt e o segundo o formato de data que será usado
 
-- Para converter de ingles para Portugues 
-  - importar ptBR da localização "date-fns/locale/pt/pt-BR"
-  - Passa como terceiro parâmetro no formato formated
+    -   Aspas duplas no formato e os caracteres que estão na documentação do FNS, onde caracteres irão representar o conteúdo da data. As aspas simples serão textos que não vão ser formatados
+        -   EEEE (dia da semana), ' ' com o ponto dentro •, dia (d) ' de ', MMMM (mês), ' ' com o ponto dentro •, k (hora), ' h ', mm (minuto),
+
+-   Para converter de ingles para Portugues
+
+    -   importar ptBR da localização "date-fns/locale/pt/pt-BR"
+    -   Passa como terceiro parâmetro no formato formated
+
+    ## Estilizando vídeo
+
+-   Na div de conteúdo do vídeo h-full w-full max-w-[1100px] max-h-[60vh] (largura e altura tela inteira, max largura e max altura)
+    -   aspect-video(propriedade do aspect-ratio q é a proporção)
+-   "p-8 max-w[1100px] mx-auto" (padding 32px, largira máxima. margin laterais)
+
+-   Logos estão no pacote de ícones. ex. <DiscordLogo />
+
+-   Efeitos de hover = passar com : e tudo que vier depois é aplicado ex. hover:bg-blue-500 |hover:text-gray-900
+
+-   Transições passadas diretamente. ex. transition-colors
+
+-   leading-relaxed = line-height:162,5%
+
+-   grid-cols-2 cria duas colunas com as memas setagens
+
+-   overflow-hidden todos os elementos internos nunca vão poder passar com container
+
+-   items-stretch se estica para cumprir a maior altura possivel dentro do container
+
+## Instalando biblioteca vimeJs (vídeos do site)
+
+-   https://vimejs.com/
+    -   Instalation
+        -   React
+        -   acessa pacotes de Instalação
+        -   npm i @vime/core @vime/react --force (talvez mude, olhar documentação) (tive que forçar instalação)
