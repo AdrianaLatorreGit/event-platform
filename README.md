@@ -375,6 +375,8 @@ Dinamismo para variae dependendo da aula, liberada ou não, ao vivo ou não
     -   Substitui as âncoras por um componente do react-router-dom chamada Link e passa na interpolação o slug
 
 -   Alterar os endereços do Router com as especificações de cada slug das páginas (parâmetro dinâmico (:slug))
+    
+    
 
 -   Para Acessar o parâmetro do slug, page/Event.txt , realiza a função com useParams para "capturar o slug"
 
@@ -389,3 +391,5 @@ Dinamismo para variae dependendo da aula, liberada ou não, ao vivo ou não
 - Usar if para esperar a resposta da requisição
 
 - Substituir os elementos estáticos por variáveis {data.lesson.videoId/title/description/teacher.name/teacher.bio/teacher.avatarURL}
+    
+![screenshot](https://user-images.githubusercontent.com/101880897/175836231-21d8bffd-4f4a-449a-81d8-8001460d9d66.png)
