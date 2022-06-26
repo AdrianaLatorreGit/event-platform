@@ -4,13 +4,13 @@
 
     -   npm run dev
 
--   Extensão
+-   Extensões
 
     -   GraphQL
     -   Tailwind CSS IntelliSense
     -   PostCSS Language Support
 
--   Instalação vite (modelo ecmascript model que transforma a tecnologia em nativa para nabegador)
+-   Instalação vite (modelo ecmascript model que transforma a tecnologia em nativa para navegador)
 -   npm create vite@latest
 
     -   framework react
