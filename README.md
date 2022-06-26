@@ -335,7 +335,57 @@ Dinamismo para variae dependendo da aula, liberada ou não, ao vivo ou não
 ## Instalando biblioteca vimeJs (vídeos do site)
 
 -   https://vimejs.com/
+
     -   Instalation
+
         -   React
         -   acessa pacotes de Instalação
         -   npm i @vime/core @vime/react --force (talvez mude, olhar documentação) (tive que forçar instalação)
+        -   Importa componente Player na div destinada a isso
+            -   componete Youtube (quelquer componente de onde o vídeo venha (Vimeo ou genérico Video(endereço de qualquer MP4)))
+            -   videoId om url do vídeo
+            -   DefaultUi que coloca os controles padrões da biblioteca (Apenas Ui é posiivel customizar quais controles vão entrar no vídeo)
+
+    -   Importar um CSS, tema padrão do vídeo
+        -   Importa '@vime/core/themes/default.css'
+
+## Aparecendo o vídeo selecionado
+
+-   Requisição no GraphCMS e mudando a URL
+-   Biblioteca react-router-dom para lidar com roteamento dentro de uma aplicação react
+
+    -   npm i react-router-dom
+
+-   Criar arquivo Router.tsx
+
+    -   especificar código dentro dela
+        -   path = qual caminho vc quer q aquela rota pertença
+        -   element = qual elemento vc quer mostrar em tela quando a pessoa estiver na rota path
+    -   No app troca o retorno por router
+
+-   React router dom tbm tem um provider dele (BrowserRouter)
+
+    -   Tirar o ApolloProvider do main e passar para o app, envolvendo o Router
+    -   Envolve o Router no BrowserRouter
+
+-   No roteador, em element colocar a página que será renderizada, ex. Event
+
+-   Para mudar a URL de acordo com o vídeo, encontrar as âncoras da pasta Lesson
+
+    -   Substitui as âncoras por um componente do react-router-dom chamada Link e passa na interpolação o slug
+
+-   Alterar os endereços do Router com as especificações de cada slug das páginas (parâmetro dinâmico (:slug))
+
+-   Para Acessar o parâmetro do slug, page/Event.txt , realiza a função com useParams para "capturar o slug"
+
+-   Passa slug como uma propriedade no Event.tsx
+
+-   Montar a interface do Video no Video.tsx
+
+- Criar a const GET_LESSONS_SLUG_QUERY para buscar na  api os elementos
+    - Como foi feito na Sidebar, criar uma interface para representar qual a resposta da query (GetLessonBySlugResponse)
+        - dentro do componente de vídeo criar a const para data, passando o GET_LESSONS_SLUG_QUERY com as variáveis
+
+- Usar if para esperar a resposta da requisição
+
+- Substituir os elementos estáticos por variáveis {data.lesson.videoId/title/description/teacher.name/teacher.bio/teacher.avatarURL}
